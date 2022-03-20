@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url('./assets/fundo_login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+label{
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
+}
