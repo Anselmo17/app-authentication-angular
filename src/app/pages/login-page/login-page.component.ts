@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from 'src/app/core/auth/auth.service';
 import { User } from 'src/app/models/login.model';
 
 @Component({
@@ -12,7 +13,9 @@ export class LoginPageComponent implements OnInit {
   userForm = new FormGroup({});
   submitted = false;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.initForm();
@@ -27,8 +30,9 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    const infoUser: User = this.userForm.value;
-    console.log('-------------------', infoUser);
+    const user: User = this.userForm.value;
+    console.log(`--------------`, user)
+    this.authService.auth(user.login, user.password);
   }
 
 }
